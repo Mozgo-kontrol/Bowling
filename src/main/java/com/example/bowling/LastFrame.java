@@ -9,7 +9,7 @@ public class LastFrame implements Scoreable{
 
         int score = rolls.get(rollIndex) + rolls.get(rollIndex + 1);
         // add bonus roll only if Spare oder Strike
-        if (rollIndex + 2 < rolls.size() && (rolls.get(rollIndex) == 10 || rolls.get(rollIndex) + rolls.get(rollIndex + 1) == 10)) {
+        if ((GameHelper.isStrike(rolls,rollIndex) || GameHelper.isSpare(rolls,rollIndex))) {
             score += rolls.get(rollIndex + 2);
         }
 
@@ -20,7 +20,7 @@ public class LastFrame implements Scoreable{
     public int getAdvance(List<Integer> rolls, int rollIndex) {
         // Always consume 2 rolls
         // Add 1 more if strike or spare
-        if (rolls.get(rollIndex) == 10 || rolls.get(rollIndex) + rolls.get(rollIndex + 1) == 10) {
+        if (GameHelper.isStrike(rolls, rollIndex) || GameHelper.isSpare(rolls, rollIndex)) {
             return 3;
         }
         return 2;

@@ -40,13 +40,23 @@ public class GameTest {
     }
 
     @Test
-    void testExampleInputFromYou() {
+    void testExampleInputOne() {
         Game game = new Game();
         int[] rolls = {10, 9, 1, 5, 5, 7, 2, 10, 10, 10, 9, 0, 8, 2, 9, 1, 10};
         for (int roll : rolls) {
             game.roll(roll);
         }
         assertEquals(187, game.getScore());
+    }
+
+    @Test
+    void testExampleInputTwo() {
+        Game game = new Game();
+        int[] rolls = {1, 4, 4, 5, 6, 4, 5, 5, 10, 0, 1, 7, 3, 6, 4, 10, 2, 8, 6};
+        for (int roll : rolls) {
+            game.roll(roll);
+        }
+        assertEquals(133, game.getScore());
     }
 
     private void rollMany(Game game, int times, int pins) {

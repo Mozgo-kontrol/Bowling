@@ -9,14 +9,13 @@ public class Frame implements Scoreable {
         int first = rolls.get(rollIndex);
         int second = rolls.get(rollIndex + 1);
 
-        if (first == 10) {
+        if (GameHelper.isStrike(rolls, rollIndex)) {
             // When Strike then add score 1 and score 2 from next Frame
-            return 10 + rolls.get(rollIndex + 1) + rolls.get(rollIndex + 2);
+            return 10 + GameHelper.strikeBonus(rolls, rollIndex);
 
-        } else if (first + second == 10) {
-
+        } else if (GameHelper.isSpare(rolls, rollIndex)) {
             // Spare get only first score from next Frame
-            return 10 + rolls.get(rollIndex + 2);
+            return 10 + GameHelper.spareBonus(rolls, rollIndex);
 
         } else {
             //no bonus get scores
