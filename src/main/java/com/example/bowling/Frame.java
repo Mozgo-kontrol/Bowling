@@ -2,20 +2,20 @@ package com.example.bowling;
 
 import java.util.List;
 
-public class Frame implements Scoreable {
+public class Frame implements FrameScoreable {
 
     @Override
     public int getScore(List<Integer> rolls, int rollIndex) {
         int first = rolls.get(rollIndex);
-        int second = rolls.get(rollIndex + 1);
+        int second = FrameResolver.getSafe(rolls, rollIndex +1);
 
-        if (GameHelper.isStrike(rolls, rollIndex)) {
+        if (FrameResolver.isStrike(rolls, rollIndex)) {
             // When Strike then add score 1 and score 2 from next Frame
-            return 10 + GameHelper.strikeBonus(rolls, rollIndex);
+            return 10 + FrameResolver.strikeBonus(rolls, rollIndex);
 
-        } else if (GameHelper.isSpare(rolls, rollIndex)) {
+        } else if (FrameResolver.isSpare(rolls, rollIndex)) {
             // Spare get only first score from next Frame
-            return 10 + GameHelper.spareBonus(rolls, rollIndex);
+            return 10 + FrameResolver.spareBonus(rolls, rollIndex);
 
         } else {
             //no bonus get scores

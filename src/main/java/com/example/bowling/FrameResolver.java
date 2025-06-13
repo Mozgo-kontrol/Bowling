@@ -2,7 +2,7 @@ package com.example.bowling;
 
 import java.util.List;
 
-public class GameHelper {
+public class FrameResolver {
 
     public static boolean isStrike(List<Integer> rolls, int i) {
         return i < rolls.size() && rolls.get(i) == 10;
@@ -18,7 +18,7 @@ public class GameHelper {
         return getSafe(rolls, i + 1) + getSafe(rolls, i + 2);
     }
 
-    private static int getSafe(List<Integer> rolls, int index) {
+    public static int getSafe(List<Integer> rolls, int index) {
         return (index < rolls.size()) ? rolls.get(index) : 0;
     }
 }

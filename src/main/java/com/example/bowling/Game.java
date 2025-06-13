@@ -6,20 +6,25 @@ import java.util.List;
 public class Game {
 
     private final List<Integer> rolls = new ArrayList<>();
+    private final ScoreCalculator calculator = new ScoreCalculator();
 
     public void roll(int pins) {
         rolls.add(pins);
     }
 
-    public int getScore() {
-        int total = 0;
-        int rollIndex = 0;
-        for (int frame = 1; frame <= 10; frame++) {
-            Scoreable frameLogic = (frame == 10) ? new LastFrame() : new Frame();
-            total += frameLogic.getScore(rolls, rollIndex);
-            rollIndex += frameLogic.getAdvance(rolls, rollIndex);
+    public void printFrameScores() {
+        List<Integer> scores = calculator.calculateFrameScores(rolls);
+        for (int i = 0; i < scores.size(); i++) {
+            System.out.println("Frame " + (i + 1) + ": " + scores.get(i) + " points");
         }
-        return total;
+    }
+
+    public int getScore() {
+        return calculator.calculateTotalScore(rolls);
+    }
+
+    public boolean isFinished() {
+        return calculator.calculateFrameScores(rolls).size() == 10;
     }
 
 }
