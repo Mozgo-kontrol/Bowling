@@ -9,7 +9,8 @@ A simple Java 21 CLI app to calculate bowling scores frame by frame, including s
 * GameRunner.java # CLI class that handles user input/output
 
 🔧 Next Steps to Improve
-*    🎯 Accept input for each roll from the console.
+* 🎯 Accept input for each roll from the console.
+* 🎯 Create a class ScoreCalculator to incapsulate a counting logic.
 *	🧍 Add multiplayer support
 *	📝 Validate illegal rolls (e.g. 9 + 5)
 *	🖥 Create GUI (JavaFX or Swing)
