@@ -2,13 +2,14 @@ package com.example.bowling;
 
 import java.util.List;
 
-public abstract class Frame implements FrameScoreable, Parameterizable {
+public abstract class Frame implements FrameScoreable, Parameterizable{
    private String name;
    private int score;
 
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -20,5 +21,7 @@ public abstract class Frame implements FrameScoreable, Parameterizable {
         this.score = score;
     }
 
-    public abstract int getAdvance(List<Integer> rolls, int rollIndex);
+    public int getAdvance(List<Integer> rolls, int rollIndex){
+        return rolls.get(rollIndex) == 10 ? 1 : 2;
+    }
 }

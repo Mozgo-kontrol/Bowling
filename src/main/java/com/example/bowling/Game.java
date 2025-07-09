@@ -13,15 +13,8 @@ private final FrameFactory frameFactory = new FrameFactory();
         rolls.add(pins);
     }
 
-    public void printFrameScores() {
-        List<Integer> scores = calculator.calculateFrameScores(rolls);
-        for (int i = 0; i < scores.size(); i++) {
-            System.out.println("Frame " + (i + 1) + ": " + scores.get(i) + " points");
-        }
-    }
-
     public void printFramesWithScores() {
-        Map<Integer, FrameScoreable> frames = calculator.calculateAndPrintFrameScores(rolls);
+        Map<Integer, FrameScoreable> frames = calculator.calculateFramesScore(rolls);
         printFrameScores(frames);
     }
 
@@ -37,7 +30,7 @@ private final FrameFactory frameFactory = new FrameFactory();
     }
 
     public boolean isFinished() {
-        return calculator.calculateFrameScores(rolls).size() == 10;
+        return calculator.calculateFramesScore(rolls).size() == 10;
     }
 
 }

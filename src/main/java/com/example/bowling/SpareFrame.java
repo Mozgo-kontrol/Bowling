@@ -4,13 +4,13 @@ import java.util.List;
 
 public class SpareFrame extends Frame{
 
-    @Override
-    public int getScore(List<Integer> rolls, int rollIndex) {
-        return  10 + FrameResolver.spareBonus(rolls, rollIndex);
+    public SpareFrame(){
+        super.setName("Spare");
     }
 
     @Override
-    public int getAdvance(List<Integer> rolls, int rollIndex) {
-        return  rolls.get(rollIndex) == 10 ? 1 : 2;
+    public void calculateScore(List<Integer> rolls, int rollIndex) {
+        int score = 10 + Tools.getSafe(rolls, rollIndex + 2);
+        super.setScore(score);
     }
 }
