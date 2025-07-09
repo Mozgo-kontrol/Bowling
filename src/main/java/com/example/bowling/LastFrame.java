@@ -2,8 +2,9 @@ package com.example.bowling;
 
 import java.util.List;
 
-public class LastFrame implements FrameScoreable {
-
+public class LastFrame implements FrameScoreable, Parameterizable{
+     private String name;
+     private int score;
     @Override
     public int getScore(List<Integer> rolls, int rollIndex) {
 
@@ -24,5 +25,25 @@ public class LastFrame implements FrameScoreable {
             return 3;
         }
         return 2;
+    }
+
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(String name) {
+         this.name = name;
+    }
+
+    @Override
+    public int getScore() {
+        return score;
+    }
+
+    @Override
+    public void setScore(int score) {
+      this.score=score;
     }
 }

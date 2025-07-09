@@ -34,7 +34,7 @@ public class GameRunner {
                     System.out.println("❌ Invalid input: '" + token + "'");
                 }
             }
-            game.printFrameScores();
+            game.printFramesWithScores();
         }
 
         System.out.println("🏁 Final Score: " + game.getScore());
