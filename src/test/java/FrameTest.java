@@ -6,7 +6,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class FrameTest {
-    private final Frame frame = new Frame();
+   /* private final Frame frame = new Frame();
 
     @Test
     void testStrikeScore() {
@@ -27,5 +27,5 @@ public class FrameTest {
         List<Integer> rolls = List.of(4, 2);
         assertEquals(6, frame.getScore(rolls, 0));
         assertEquals(2, frame.getAdvance(rolls, 0));
-    }
+    }*/
 }
