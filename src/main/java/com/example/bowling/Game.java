@@ -5,24 +5,23 @@ import java.util.List;
 import java.util.Map;
 
 public class Game {
-private final FrameFactory frameFactory = new FrameFactory();
     private final List<Integer> rolls = new ArrayList<>();
-    private final ScoreCalculator calculator = new ScoreCalculator(frameFactory);
+    private final ScoreCalculator calculator;
 
+    public Game(ScoreCalculator calculator){
+        this.calculator = calculator;
+    }
     public void roll(int pins) {
         rolls.add(pins);
     }
 
     public void printFramesWithScores() {
-        Map<Integer, FrameScoreable> frames = calculator.calculateFramesScore(rolls);
+        Map<Integer, Scoreable> frames = calculator.calculateFramesScore(rolls);
         printFrameScores(frames);
     }
 
-    private void printFrameScores(Map<Integer, FrameScoreable> framesMap){
-        framesMap.forEach((frameNumber, frame) -> {
-            Parameterizable parameterizable = (Parameterizable) frame;
-           System.out.println("Frame "+ frameNumber + " : " + parameterizable.getName()+ " : " + parameterizable.getScore()+" points");
-        });
+    private void printFrameScores(Map<Integer, Scoreable> frames){
+        new ScorePrinter().print(frames);
     }
 
     public int getScore() {

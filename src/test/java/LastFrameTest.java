@@ -1,12 +1,9 @@
-import com.example.bowling.LastFrame;
-import org.junit.jupiter.api.Test;
-
-import java.util.List;
+import com.example.bowling.Last;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LastFrameTest {
-    private final LastFrame lastFrame = new LastFrame();
+    private final Last lastFrame = new Last();
 /*
     @Test
     void testStrikeInLastFrame() {

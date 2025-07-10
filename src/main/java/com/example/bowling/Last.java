@@ -2,11 +2,11 @@ package com.example.bowling;
 
 import java.util.List;
 
-public class LastFrame implements FrameScoreable, Parameterizable {
+public class Last extends Frame {
      private String name;
      private int score;
 
-     public LastFrame(){
+     public Last(){
          this.name = "Last";
      }
 

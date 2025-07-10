@@ -2,15 +2,20 @@ package com.example.bowling;
 
 import java.util.List;
 
-public class NormalFrame extends Frame {
+public class Regular extends Frame {
 
-    public NormalFrame(){
-        super.setName("Normal");
+    public Regular(){
+        this.setName("Normal");
     }
     @Override
     public void calculateScore(List<Integer> rolls, int rollIndex) {
         int first = rolls.get(rollIndex);
         int second = Tools.getSafe(rolls, rollIndex + 1);
         super.setScore(first + second);
+    }
+
+    @Override
+    public int getAdvance(List<Integer> rolls, int rollIndex){
+        return rolls.get(rollIndex) == 10 ? 1 : 2;
     }
 }

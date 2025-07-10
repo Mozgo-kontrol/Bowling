@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 public class GameRunner {
     public static void main(String[] args) {
-        Game game = new Game();
+        FrameFactory frameFactory = new FrameFactory();
+        ScoreCalculator calculator = new ScoreCalculator(frameFactory);
+        Game game = new Game(calculator);
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("🎳 Welcome to Bowling Game Scorer!");
