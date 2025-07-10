@@ -3,8 +3,8 @@ package com.example.bowling;
 import java.util.List;
 
 public abstract class Frame implements FrameScoreable, Parameterizable{
-   private String name;
-   private int score;
+    private String name;
+    private int score;
 
     public String getName() {
         return name;
